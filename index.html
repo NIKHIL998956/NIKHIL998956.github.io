@@ -3,73 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil | Python Developer</title>
+    <title>Nikhil | Python Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* BASIC SETUP */
+        :root {
+            --primary: #58a6ff;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --text: #c9d1d9;
+            --white: #f0f6fc;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; }
-        
-        /* NAVIGATION */
-        nav { position: fixed; top: 0; width: 100%; background: #161b22; padding: 15px 50px; display: flex; justify-content: space-between; z-index: 1000; border-bottom: 1px solid #30363d; }
-        nav a { color: #58a6ff; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-        /* FULL HEIGHT SECTIONS */
-        section { min-height: 100vh; padding: 100px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        /* HEADER & NAV */
+        header { position: fixed; top: 0; width: 100%; background: rgba(22, 27, 34, 0.95); padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #30363d; }
+        .logo { font-weight: 600; font-size: 1.5rem; color: var(--primary); }
+        nav a { color: var(--text); text-decoration: none; margin-left: 25px; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
 
-        /* SECTION 1: HERO */
-        .hero { background: radial-gradient(circle at top, #1e293b 0%, #0d1117 100%); }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid #58a6ff; object-fit: cover; margin-bottom: 20px; }
-        h1 { font-size: 3.5rem; color: #f0f6fc; }
-        .subtitle { font-size: 1.5rem; color: #8b949e; margin-bottom: 20px; }
+        section { padding: 100px 10%; min-height: 100vh; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--white); border-left: 5px solid var(--primary); padding-left: 15px; }
 
-        /* SECTION 2: SKILLS */
-        .skills { background-color: #161b22; }
-        .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 800px; width: 100%; margin-top: 30px; }
-        .skill-item { background: #0d1117; padding: 20px; border-radius: 10px; border: 1px solid #30363d; }
+        /* HERO SECTION */
+        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #1e293b 0%, #0d1117 100%); }
+        .profile-img { width: 200px; height: 200px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 20px rgba(88, 166, 255, 0.3); }
+        .hero h1 { font-size: 4rem; color: var(--white); }
+        .hero p { font-size: 1.5rem; color: #8b949e; margin-bottom: 30px; }
 
-        /* SECTION 3: RESUME */
-        .resume-section { background-color: #0d1117; }
-        .btn { background: #238636; color: white; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-size: 1.2rem; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #2ea043; transform: scale(1.05); }
+        /* EXPERIENCE & PROJECTS CARDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #30363d; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; }
+        .card ul { list-style: none; padding-left: 0; }
+        .card li { margin-bottom: 10px; font-size: 0.95rem; }
+        .card li::before { content: "▹ "; color: var(--primary); }
 
-        h2 { font-size: 2.5rem; margin-bottom: 30px; color: #58a6ff; }
+        /* RESUME BUTTON */
+        .cta { text-align: center; margin-top: 50px; }
+        .btn { background: var(--primary); color: #0d1117; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s; }
+        .btn:hover { background: #79c0ff; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #30363d; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div style="font-weight:bold; color:#f0f6fc;">NIKHIL.DEV</div>
-        <div>
+    <header>
+        <div class="logo">NIKHIL.PY</div>
+        <nav>
             <a href="#home">Home</a>
-            <a href="#skills">Skills</a>
-            <a href="#resume">Resume</a>
-        </div>
-    </nav>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
     <section id="home" class="hero">
         <img src="profile.jpg" alt="Nikhil" class="profile-img">
-        <h1>Hi, I'm Nikhil</h1>
-        <p class="subtitle">Python Software Developer</p>
-        <p style="max-width: 600px;">I build scalable web applications and robust APIs using Python. Passionate about clean code and efficient databases.</p>
-    </section>
-
-    <section id="skills" class="skills">
-        <h2>My Tech Stack</h2>
-        <div class="skill-grid">
-            <div class="skill-item"><h3>Python</h3></div>
-            <div class="skill-item"><h3>Django</h3></div>
-            <div class="skill-item"><h3>Flask</h3></div>
-            <div class="skill-item"><h3>PostgreSQL</h3></div>
-            <div class="skill-item"><h3>REST API</h3></div>
-            <div class="skill-item"><h3>Git</h3></div>
+        <h1>Nikhil</h1>
+        <p>Python Software Developer</p>
+        <div class="cta">
+            <a href="resume.pdf" download class="btn">Download Full Resume</a>
         </div>
     </section>
 
-    <section id="resume" class="resume-section">
-        <h2>Ready to work together?</h2>
-        <p style="margin-bottom: 40px;">Check out my professional experience and detailed skill set.</p>
-        <a href="resume.pdf" download class="btn">Download My Resume</a>
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Python Developer</h3>
+                <p><strong>Company Name</strong> | 202X - Present</p>
+                <ul>
+                    <li>Developed scalable backend logic using <strong>Django</strong>.</li>
+                    <li>Integrated third-party APIs and optimized database queries.</li>
+                    <li>Automated internal workflows using Python scripts.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Junior Developer Intern</h3>
+                <p><strong>Previous Company</strong> | 202X - 202X</p>
+                <ul>
+                    <li>Assisted in debugging and testing Python-based applications.</li>
+                    <li>Collaborated with the frontend team to connect REST APIs.</li>
+                </ul>
+            </div>
+        </div>
     </section>
+
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>E-Commerce Platform</h3>
+                <p>A full-featured Django store with payment integration and user authentication.</p>
+                <div style="margin-top:15px; color: var(--primary);">Stack: Django, SQLite, Stripe</div>
+            </div>
+            <div class="card">
+                <h3>Task Management API</h3>
+                <p>Robust RESTful API designed for managing team workflows and deadlines.</p>
+                <div style="margin-top:15px; color: var(--primary);">Stack: Django Rest Framework, Git</div>
+            </div>
+            <div class="card">
+                <h3>Web Scraper Bot</h3>
+                <p>Automated tool to collect and analyze market data from multiple sources.</p>
+                <div style="margin-top:15px; color: var(--primary);">Stack: Python, BeautifulSoup, Selenium</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h2>Get In Touch</h2>
+        <p>Currently looking for new opportunities in Python Development.</p>
+        <p style="margin-top: 20px; font-size: 1.2rem;">Email: <strong>your.email@example.com</strong></p>
+        <div style="margin-top: 30px;">
+            <a href="https://github.com/nikhil998956" style="color: var(--primary); text-decoration: none; font-size: 2rem; margin: 0 15px;">GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Nikhil | Python Software Developer
+    </footer>
 
 </body>
 </html>
